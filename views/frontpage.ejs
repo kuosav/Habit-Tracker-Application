@@ -1,0 +1,37 @@
+<%- include('./partials/header.ejs') %>
+<div class="medium">
+    <h2>Welcome to habit tracker!</h2>
+    <p>Track your sleep, exercise, studying, eating and general mood! You can report sleep in the morning and exercise, studying as well as eating in the evening. Mood is tracked both in the beginning and at the end of the day, as your mood can change during the day.</p>
+    <p>For the best results, come back every day, but in case you miss some days, you can report them afterwards as well.</p><br>
+
+    <% if (today) { %>
+        <p>Today's average mood for all users is <%= today %>.</p>
+    <% } %>
+    <% if (yesterday) { %>
+        <p>Yesterday's average mood for all users was <%= yesterday %>.</p>
+    <% } %>
+
+    <% if (today && yesterday && today < yesterday) { %>
+        <p>Things are looking a bit gloomy today! 😕</p>
+    <% } else if (today && yesterday && today >= yesterday) { %>
+        <p>Things are looking bright today! ☀️</p>
+    <% } %>
+    <br>
+    <form method='GET' action='/behavior/reporting'>
+        <input type="submit" value="Report your habits" />
+    </form>
+
+    <% if (typeof auth == 'undefined') { %>
+        <p>Log in to track your habits!</p>
+        <form method='GET' action='/auth/login'>
+            <input type="submit" id="buttonStyle2" value="Log in" />
+        </form>
+        <p>No account yet? </p>
+        <form method='GET' action='/auth/registration'>
+            <input type="submit" id="buttonStyle2" value="Register now" />
+        </form>
+    <% } %>
+    
+    <%- include('./partials/logout.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>

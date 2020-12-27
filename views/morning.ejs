@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs') %>
+<div class="narrow">
+    <h2>Morning report</h2>
+    <form method='POST' action='/behavior/reporting/morning'>
+        <label for="date">Date</label><br>
+        <input type="date" name="date" value="<%= date %>"/><br>
+        
+        <label for="sleepDuration">Sleep duration (hours)</label><br>
+        <input type="number" step="any" min="0" max="24" name="sleepDuration" value="<%= sleepDuration %>" /><br>
+        
+        <label for="sleepQuality">Sleep quality</label><br>
+        <input type="range" min="1" max="5" step="1" name="sleepQuality" value="<%= sleepQuality %>"/><br>
+        
+        <label for="mood">Mood</label><br>
+        <input type="range" min="1" max="5" step="1" name="mood" value="<%= mood %>"/><br>
+
+        <input type="submit" value="Send" />
+    </form>
+    
+    <%- include('./partials/errors.ejs') %>
+    <%- include('./partials/logout.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>
+
+
+

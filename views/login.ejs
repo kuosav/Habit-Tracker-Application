@@ -1,0 +1,19 @@
+<%- include('./partials/header.ejs') %>
+<div class="narrow">
+    <h2>Login</h2>
+    <form method='POST' action='/auth/login'>
+        <label for="email">Email</label>
+        <input type="email" name="email" />
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+        <input type="submit" value="Login" />
+    </form>
+    <% if (!success) { %>
+        <p>Invalid email or password</p>
+    <% } %>
+    <p>No account yet? </p>
+    <form method='GET' action='/auth/registration'>
+        <input type="submit" id="buttonStyle2" value="Register now" />
+    </form>
+</div>
+<%- include('./partials/footer.ejs') %>

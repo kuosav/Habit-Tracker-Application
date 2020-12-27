@@ -1,0 +1,20 @@
+<%- include('./partials/header.ejs') %>
+<div class="medium">
+    <h2>Report</h2>
+    <form method='GET' action='/behavior/reporting/morning'>
+        <label>Submit morning data (<% if (morning) { %>already submitted for today<% } else { %>not submitted yet<% } %>)</label>
+        <input type="submit" value="Report morning" />
+    </form>
+    <br>
+    <form method='GET' action='/behavior/reporting/evening'>
+        <label>Submit evening data (<% if (evening) { %>already submitted for today<% } else { %>not submitted yet<% } %>)</label>
+        <input type="submit" value="Report evening" />
+    </form>
+    <br>
+    <form method="GET" action="/behavior/summary">
+        <input type="submit" id="buttonStyle2" value="Check out your summary" />
+    </form>
+    <br>
+    <%- include('./partials/logout.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>

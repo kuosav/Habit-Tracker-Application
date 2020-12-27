@@ -1,0 +1,9 @@
+<br>
+<% if (typeof auth != 'undefined') { %>
+    <div class="logout">
+        <p>Logged in as <%= auth %></p>
+        <form method="POST" action="/auth/logout">
+            <input type="submit" value="Log out" />
+        </form>
+    </div>
+<% } %>

@@ -1,0 +1,51 @@
+<%- include('./partials/header.ejs') %>
+<div class="summaryPage">
+    <h2>Summary</h2>
+    <div class="summary">
+        <div class="summaryItem">
+            <h3>Weekly averages for week <%= week %></h3>
+            <p>Select week</p>
+            <form method="POST" action="/behavior/summary">
+                <input type="week" name="week" />
+                <input type="submit" value="Select" />
+            </form>
+
+            <% if (weekData != null) { %>
+                <ul>
+                    <li>Average sleep quality: <%= weekData.sleep_quality %></li>
+                    <li>Average sleep duration: <%= weekData.sleep_duration %></li>
+                    <li>Average time spent on sports: <%= weekData.sports_duration %></li>
+                    <li>Average time spent on studying: <%= weekData.study_duration %></li>
+                    <li>Average quality and regularity of eating: <%= weekData.diet_rating %></li>
+                    <li>Average mood: <%= weekData.mood %></li>
+                </ul>
+            <% } else { %>
+                <p>Not enough data for weekly averages.</p>
+            <% } %>
+        </div>
+
+        <div class="summaryItem">
+            <h3>Monthly averages for <%= month %></h3>
+            <p>Select month</p>
+            <form method="POST" action="/behavior/summary">
+                <input type="month" name="month" />
+                <input type="submit" value="Select" />
+            </form>
+
+            <% if (monthData != null) { %>
+                <ul>
+                    <li>Average sleep quality: <%= monthData.sleep_quality %></li>
+                    <li>Average sleep duration: <%= monthData.sleep_duration %></li>
+                    <li>Average time spent on sports: <%= monthData.sports_duration %></li>
+                    <li>Average time spent on studying: <%= monthData.study_duration %></li>
+                    <li>Average quality and regularity of eating: <%= monthData.diet_rating %></li>
+                    <li>Average mood: <%= monthData.mood %></li>
+                </ul>
+            <% } else { %>
+                <p>Not enough data for monthly averages.</p>
+            <% } %>
+        </div>
+    </div>
+    <%- include('./partials/logout.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>

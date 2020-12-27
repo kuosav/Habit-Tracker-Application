@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs') %>
+<div class="narrow">
+    <h2>Evening report</h2>
+    <form method="POST" action="/behavior/reporting/evening">
+        <label for="date">Date</label><br>
+        <input type="date" name="date" value="<%= date %>"/>
+
+        <label for="sportsDuration">Time spent on sports (hours)</label>
+        <input type="number" step="any" min="0" max="24" name="sportsDuration" value="<%= sportsDuration %>" />
+
+        <label for="studyDuration">Time spent on studying (hours)</label>
+        <input type="number" step="any" min="0" max="24" name="studyDuration" value="<%= studyDuration %>" />
+
+        <label for="dietRating">Quality and regularity of eating</label>
+        <input type="range" min="1" max="5" step="1" name="dietRating" value="<%= dietRating %>" />
+
+        <label for="mood">Mood</label>
+        <input type="range" min="1" max="5" step="1" name="mood" value="<%= mood %>" />
+
+        <input type="submit" value="Send" />
+    </form>
+    
+    <%- include('./partials/errors.ejs') %>
+    <%- include('./partials/logout.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,16 @@
+<%- include('./partials/header.ejs') %>
+<div class="narrow">
+    <h2>Registration</h2>
+    <form method='POST' action='/auth/registration'>
+        <label for="email">Email</label>
+        <input type="email" name="email" value="<%= email %>" />
+        <label for="password">Password</label>
+        <input type="password" name="password" />
+        <label for="passwordValidation">Retype password</label>
+        <input type="password" name="passwordValidation" />
+        <input type="submit" value="Register" />
+    </form>
+    <br>
+    <%- include('./partials/errors.ejs') %>
+</div>
+<%- include('./partials/footer.ejs') %>
